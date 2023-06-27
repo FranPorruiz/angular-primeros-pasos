@@ -1,0 +1,39 @@
+<h3>Listado de Héroes</h3>
+
+<!--Si deleteHeroe tiene algun valor (ergo es true)
+el div aparece-->
+<!-- el nothingwasDeleted es una referencia local, como un ancla-->
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3>
+    Héroe borrado
+  <!--clase de boostrap para mostrar un texto en roko-->
+    <small class="text-danger">
+     {{deletedHero}}
+    </small>
+  </h3>
+</div>
+
+<!--un ng template es como un div pero que no existe en el html-->
+<!--con la # estamos diciendo que llamamos a una referencia local-->
+<ng-template #nothingWasDeleted>
+  <h3>No ha borrado nada</h3>
+</ng-template>
+
+
+<button
+*ngIf="heroNames.length>0"
+(click)="removeLastName()"
+
+class="btn btn-primary mx-2">
+  Borrar último héroe
+</button>
+
+
+<!--Listado con clase de boostrap-->
+<ul class="me-2 list-group">
+<!--ngFor hace un ciclo que recorre un listado generado en ts-->
+  <li
+  *ngFor="let item of heroNames"
+  class="list-group-item">{{item}}</li>
+
+</ul>

@@ -1,0 +1,28 @@
+<h4>Agregar personaje</h4>
+<!--ngSubmit es un evento especial de angular  que lo hace clicable que evita la propagación del formulario-->
+    <form class="row" (ngSubmit)="emitCharacter()">
+      <!--ng model nos vincula con el atributo del objeto en ts, name es para darle una denominación-->
+      <input
+      type="text"
+      [(ngModel)]="character.name"
+      name="name"
+      class="form-control mb-2"
+      placeholder="Nombre">
+
+      <input
+      type="number"
+      [(ngModel)]="character.power"
+      name="power"
+      class="form-control mb-2"
+      placeholder="Poder">
+
+      <button
+      type="submit"
+      class="btn btn-dark">
+        Agregar
+      </button>
+
+      <!--pipeline para que represente  el objeto en json
+      <span>{{character | json}}</span>
+    -->
+    </form>

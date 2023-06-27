@@ -1,0 +1,28 @@
+<h1>Dragon Ball Personajes</h1>
+<!--Empezando seccion  6'`ppp09-->
+
+<div class="row">
+  <div class="col">
+    <!--Aqui tiene que escuchar el onDelete y conectarlo con el main page-->
+    <!--Antes llamamos a  characters y el metodo OnDeleteCharacter directamente
+    Ahora, al haber creado un servicio que injectamos en el constructor,
+  lo llamamos desde ahí-->
+  <!--hemos creado un metodo get que nos permite llamar directamente a los characters-->
+    <app-dbz-list [characterList]="characters"
+                  (onDelete)="onDeleteCharacter($event)"></app-dbz-list>
+
+  </div>
+  <div class="col">
+
+      <!--Esto es algo lioso, llama  la función del componente add-character y luego  lanza la función de este componente, main-pago componente
+      el $ event es un nombre especifico para saber que el valor que está emitiendo
+      la funcion onNewCharacter lo estamos recibiendo  en la otra función
+      -->
+      <!--Antes llamamos  y el metodo OnNewCharacter directamente
+    Ahora, al haber creado un servicio que injectamos en el constructor,
+  lo llamamos desde ahí-->
+
+      <app-dbz-add-character (onNewCharacter)="addCharacter($event)"></app-dbz-add-character>
+  </div>
+</div>
+

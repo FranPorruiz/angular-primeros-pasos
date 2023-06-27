@@ -1,0 +1,42 @@
+<h1>{{name}}</h1>
+
+<dl>
+  <td>Nombre:</td>
+  <dd>{{name}}</dd>
+
+  <td>Edad:</td>
+  <dd>{{age}}</dd>
+
+  <td>Método:</td>
+  <dd>{{getHeroeDescription()}}</dd>
+  <!--Aqui estamos lanzando la funcion get-->
+
+  <td>Captitalizado:</td>
+  <dd>{{capitalizeName}}</dd>
+
+</dl>
+
+<!--la class es de bootstrap-->
+<!--Dentro de la directiva *ngIf le ponemos la condicion
+En nuestro caso es que si el nombre sea diferente de Thor,
+aparezca el botón
+-->
+<button
+  *ngIf="name!== 'Thor'"
+  (click)="changeHeroe()" class="btn btn-primary mx-2">
+  Cambiar nombre
+</button>
+
+<button
+  *ngIf="age!==1000"
+  (click)="changeAge()" class="btn btn-primary mx-2" >
+Cambiar edad
+</button>
+
+
+<button
+(click)="restaurar()"
+  class="btn btn-primary mx-2" >
+  Restaurar valores
+
+</button>
